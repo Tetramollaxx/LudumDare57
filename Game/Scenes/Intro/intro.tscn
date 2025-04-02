@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://btfbhe31lb45v"]
+[gd_scene load_steps=7 format=3 uid="uid://btfbhe31lb45v"]
 
 [ext_resource type="Script" uid="uid://cigipprmhxb8h" path="res://Game/Scenes/Intro/intro.gd" id="1_cynpk"]
+[ext_resource type="PackedScene" uid="uid://dkrf0lie731mp" path="res://Game/Scenes/VolumeSliders/volume_sliders.tscn" id="2_kbh0g"]
+[ext_resource type="FontFile" uid="uid://b7j8ckdxe46c0" path="res://Game/Assets/Fonts/Kaliandra-5yKrL.otf" id="3_xb6sg"]
 
 [sub_resource type="Animation" id="Animation_25bo2"]
 resource_name = "Intro"
@@ -25,10 +27,10 @@ tracks/1/path = NodePath("FG2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5, 1.75, 1.7501, 2.25),
+"times": PackedFloat32Array(1.25, 1.75, 1.7501, 2.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-1383, -2688), Vector2(-1383, -2688), Vector2(-1332, -1438), Vector2(-1383, -2688)]
+"values": [Vector2(-1383, -2682.78), Vector2(-1383, -2688), Vector2(-1332, -1438), Vector2(-1383, -2688)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -62,22 +64,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FG2:position")
+tracks/0/path = NodePath("IntroText:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1383, -2688)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("IntroText:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -92,6 +82,7 @@ _data = {
 
 [node name="Intro" type="CanvasLayer"]
 script = ExtResource("1_cynpk")
+NextScene = ExtResource("2_kbh0g")
 
 [node name="BG" type="Polygon2D" parent="."]
 color = Color(0.0470588, 0.0235294, 0.0901961, 1)
@@ -103,7 +94,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 61
+theme_override_fonts/normal_font = ExtResource("3_xb6sg")
+theme_override_font_sizes/normal_font_size = 151
 bbcode_enabled = true
 text = "[wave]Ludum Dare 57"
 horizontal_alignment = 1
@@ -118,11 +110,11 @@ autoplay = "Intro"
 
 [node name="FG" type="Polygon2D" parent="."]
 z_index = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 polygon = PackedVector2Array(-267, -296, -267, -296, 4153, -383, 4194, 2461, 4194, 2461, -332, 2502)
 
 [node name="FG2" type="Polygon2D" parent="."]
 z_index = 2
-position = Vector2(-1383, -2688)
+position = Vector2(-1383, -2686.43)
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-267, -296, -267, -296, 4153, -383, 4454, 2510, -332, 2502)
+polygon = PackedVector2Array(-271, -386, 4153, -383, 4454, 2510, -332, 2502)

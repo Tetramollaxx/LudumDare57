@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkrf0lie731mp"]
+
+[ext_resource type="Script" uid="uid://cy2r32rwx3k0e" path="res://Game/Scenes/VolumeSliders/volume_sliders.gd" id="1_uuk86"]
+[ext_resource type="FontFile" uid="uid://b7j8ckdxe46c0" path="res://Game/Assets/Fonts/Kaliandra-5yKrL.otf" id="2_ytu5u"]
+[ext_resource type="AudioStream" uid="uid://bppfukf7ci5is" path="res://Game/Assets/SFX/BellSFX.mp3" id="3_vo821"]
+
+[sub_resource type="Gradient" id="Gradient_whsao"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.584615, 0.692308, 0.930769)
+colors = PackedColorArray(1, 1, 1, 1, 0.152941, 0.101961, 0.290196, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uuk86"]
+gradient = SubResource("Gradient_whsao")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.6, 0)
+
+[sub_resource type="Gradient" id="Gradient_uuk86"]
+interpolation_mode = 1
+colors = PackedColorArray(0.243137, 0.12549, 0.560784, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ytu5u"]
+gradient = SubResource("Gradient_uuk86")
+width = 34
+fill = 2
+fill_from = Vector2(0.538964, 0.713675)
+fill_to = Vector2(0.571141, 0.957265)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whsao"]
+atlas = SubResource("GradientTexture2D_ytu5u")
+region = Rect2(0, 41.02, 0, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_whsao"]
+color = Color(0.597176, 0.597176, 0.597176, 1)
+grow_end = -9.0
+thickness = 19
+
+[node name="VolumeSliders" type="CanvasLayer"]
+script = ExtResource("1_uuk86")
+
+[node name="BG" type="Polygon2D" parent="."]
+position = Vector2(-470, -594)
+color = Color(0.0470588, 0.0235294, 0.0901961, 0.635294)
+polygon = PackedVector2Array(-267, -296, -267, -296, 4153, -383, 4194, 2461, 4194, 2461, -332, 2502)
+uv = PackedVector2Array(-267, -296, -267, -296, 4153, -383, 4194, 2461, 4194, 2461, -332, 2502)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -566.0
+offset_top = -169.0
+offset_right = 566.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 104.6)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_ytu5u")
+theme_override_font_sizes/normal_font_size = 123
+bbcode_enabled = true
+text = "[wave] VOLUME"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Master" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 130.655)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_icons/grabber = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/tick = SubResource("AtlasTexture_whsao")
+theme_override_styles/slider = SubResource("StyleBoxLine_whsao")
+max_value = 2.0
+step = 0.2
+value = 1.0
+tick_count = 6
+
+[node name="Masterlabel" type="Label" parent="VBoxContainer/Master"]
+layout_mode = 0
+offset_top = -15.575
+offset_right = 78.0
+offset_bottom = 16.425
+theme_override_fonts/font = ExtResource("2_ytu5u")
+theme_override_font_sizes/font_size = 51
+text = "Master"
+
+[node name="SFX" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 130.655)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_icons/grabber = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/tick = SubResource("AtlasTexture_whsao")
+theme_override_styles/slider = SubResource("StyleBoxLine_whsao")
+max_value = 2.0
+step = 0.2
+value = 1.0
+tick_count = 6
+
+[node name="SFXlabel" type="Label" parent="VBoxContainer/SFX"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -17.15
+offset_right = 81.0
+offset_bottom = 14.85
+theme_override_fonts/font = ExtResource("2_ytu5u")
+theme_override_font_sizes/font_size = 51
+text = "SFX"
+
+[node name="Music" type="HSlider" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 130.655)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_icons/grabber = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_uuk86")
+theme_override_icons/tick = SubResource("AtlasTexture_whsao")
+theme_override_styles/slider = SubResource("StyleBoxLine_whsao")
+max_value = 2.0
+step = 0.2
+value = 1.0
+tick_count = 6
+
+[node name="Musiclabel" type="Label" parent="VBoxContainer/Music"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -14.15
+offset_right = 81.0
+offset_bottom = 17.85
+theme_override_fonts/font = ExtResource("2_ytu5u")
+theme_override_font_sizes/font_size = 51
+text = "Music"
+
+[node name="SFXTester" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vo821")
+pitch_scale = 1.53
+bus = &"SFX"
+
+[node name="MusicTester" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vo821")
+bus = &"Music"
+
+[connection signal="drag_ended" from="VBoxContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="drag_ended" from="VBoxContainer/Music" to="." method="_on_music_value_changed"]
