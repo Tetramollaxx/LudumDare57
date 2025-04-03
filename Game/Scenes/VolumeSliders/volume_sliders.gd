@@ -1,6 +1,12 @@
 extends CanvasLayer
 
 
+
+func _ready() -> void:
+	$VBoxContainer/Master.value = AudioServer.get_bus_volume_linear(0)
+	$VBoxContainer/SFX.value = AudioServer.get_bus_volume_linear(1)
+	$VBoxContainer/Music.value = AudioServer.get_bus_volume_linear(2)
+
 func _on_master_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(0, $VBoxContainer/Master.value)
 	$SFXTester.play()

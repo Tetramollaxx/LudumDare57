@@ -79,7 +79,7 @@ theme_override_icons/tick = SubResource("AtlasTexture_whsao")
 theme_override_styles/slider = SubResource("StyleBoxLine_whsao")
 max_value = 1.0
 step = 0.1
-value = 1.0
+value = 0.8
 tick_count = 6
 
 [node name="Masterlabel" type="Label" parent="VBoxContainer/Master"]
@@ -102,7 +102,7 @@ theme_override_icons/tick = SubResource("AtlasTexture_whsao")
 theme_override_styles/slider = SubResource("StyleBoxLine_whsao")
 max_value = 1.0
 step = 0.1
-value = 1.0
+value = 0.8
 tick_count = 6
 
 [node name="SFXlabel" type="Label" parent="VBoxContainer/SFX"]
@@ -126,7 +126,7 @@ theme_override_icons/tick = SubResource("AtlasTexture_whsao")
 theme_override_styles/slider = SubResource("StyleBoxLine_whsao")
 max_value = 1.0
 step = 0.1
-value = 1.0
+value = 0.8
 tick_count = 6
 
 [node name="Musiclabel" type="Label" parent="VBoxContainer/Music"]

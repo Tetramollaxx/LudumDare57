@@ -81,7 +81,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 2.5, 3.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [1.05, 1.05, 0.75]
+"values": [1.05, 1.05, 0.83]
 }
 
 [sub_resource type="Animation" id="Animation_cynpk"]
@@ -171,7 +171,7 @@ autoplay = "Intro"
 
 [node name="FG" type="Polygon2D" parent="."]
 z_index = 2
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-267, -296, -267, -296, 4153, -383, 4194, 2461, 4194, 2461, -332, 2502)
 
 [node name="FG2" type="Polygon2D" parent="."]
