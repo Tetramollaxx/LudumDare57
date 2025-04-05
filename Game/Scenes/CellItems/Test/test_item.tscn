@@ -9,15 +9,14 @@ size = Vector2(52, 70)
 [node name="TestItem" instance=ExtResource("1_cnt6b")]
 script = ExtResource("2_kw7cu")
 Team = 0
-State = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetecter" index="0"]
+rotation = 1.57079
 scale = Vector2(3.46, 3.46)
 shape = SubResource("RectangleShape2D_cnt6b")
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="1"]
-scale = Vector2(3.46, 3.46)
-polygon = PackedVector2Array(-39, -40, 31, -38, 25, 35, -31, 36)
-
-[node name="ToolTip" parent="." index="2"]
-TipText = "This is Test tooltip"
+position = Vector2(-5.05829, 0)
+rotation = 1.57079
+scale = Vector2(2.19543, 3.46)
+polygon = PackedVector2Array(-30.4377, -36.9765, 24.6102, -36.9765, 25, 35, -31, 36)

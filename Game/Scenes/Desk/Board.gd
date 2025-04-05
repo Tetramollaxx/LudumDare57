@@ -51,4 +51,5 @@ func check_winner(Item : CellItem) -> void:
 # Функция для завершения игры
 func end_game(winner_team : String) -> void:
 	print("Игра завершена! Победитель: " + winner_team)
+	main.game.Depth -= 1
 	# Здесь можно добавить логику для остановки игры, перезапуска или отображения UI

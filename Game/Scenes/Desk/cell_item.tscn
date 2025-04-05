@@ -5,12 +5,20 @@
 
 [node name="CellItem" type="Node2D"]
 script = ExtResource("1_jctx8")
+State = 0
 
 [node name="CollisionDetecter" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_mask = 2
 
-[node name="ToolTip" parent="." instance=ExtResource("2_l5sew")]
+[node name="Node" type="Node" parent="."]
+
+[node name="ToolTip" parent="Node" instance=ExtResource("2_l5sew")]
+unique_name_in_owner = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Node/ToolTip")
+update_rotation = false
 
 [connection signal="area_entered" from="CollisionDetecter" to="." method="_on_collision_detecter_area_entered"]
 [connection signal="mouse_entered" from="CollisionDetecter" to="." method="_on_collision_detecter_mouse_entered"]

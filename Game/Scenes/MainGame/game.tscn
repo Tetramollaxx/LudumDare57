@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw0mw01x5bbjh"]
+[gd_scene load_steps=8 format=3 uid="uid://bw0mw01x5bbjh"]
 
 [ext_resource type="Script" uid="uid://b4atiqjnrb01c" path="res://Game/Scenes/MainGame/game.gd" id="1_a2gjm"]
 [ext_resource type="Texture2D" uid="uid://c0ho1wweoo111" path="res://Game/Assets/Graphics/Player/DiverPlayer.png" id="1_k0ojn"]
 [ext_resource type="PackedScene" uid="uid://ds040xgyuy3lt" path="res://Game/Scenes/Desk/Board.tscn" id="2_gbnu7"]
 [ext_resource type="Script" uid="uid://x8rxpm2ner8b" path="res://Game/Scenes/MainGame/depth_indicator.gd" id="2_hqy8m"]
 [ext_resource type="PackedScene" uid="uid://dimy02xt3kxnv" path="res://Game/Scenes/CellItems/Test/test_item.tscn" id="3_wuu58"]
+[ext_resource type="Script" uid="uid://dbl24baghy40f" path="res://Game/Scenes/MainGame/hand.gd" id="5_bff7j"]
+[ext_resource type="PackedScene" uid="uid://bw8be0hf7jr6u" path="res://Game/Scenes/CellItems/Test/test_trap.tscn" id="6_w3nw2"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_a2gjm")
@@ -20,6 +22,10 @@ polygon = PackedVector2Array(-73, -17, 448, -21, 438, 1130, -81, 1130)
 [node name="Polygon2D" type="Polygon2D" parent="TestGraphics"]
 color = Color(0.121569, 0.121569, 0.215686, 1)
 polygon = PackedVector2Array(-73, -17, 448, -21, 438, 1130, -81, 1130)
+
+[node name="Polygon2D3" type="Polygon2D" parent="TestGraphics"]
+position = Vector2(45, 0)
+polygon = PackedVector2Array(-177, 1107, 7, 1095, 9, 1000, 71, 1000, 71, 973, 5, 977, 12, 734, 71, 734, 69, 702, 5, 691, 7, 523, 71, 520, 74, 477, 7, 477, 7, 190, 86, 190, 86, 139, 10, 133, 10, -37, -146, -69)
 
 [node name="DepthIndicator" type="Node2D" parent="." node_paths=PackedStringArray("game", "Start", "End", "Indicator")]
 script = ExtResource("2_hqy8m")
@@ -40,31 +46,32 @@ position = Vector2(202, 41)
 position = Vector2(204, 984)
 
 [node name="Board" parent="." instance=ExtResource("2_gbnu7")]
-position = Vector2(1192, 556)
+position = Vector2(1171, 396)
 
-[node name="TestItem" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(1206, 1020)
+[node name="Hand" type="Node2D" parent="." node_paths=PackedStringArray("center")]
+script = ExtResource("5_bff7j")
+center = NodePath("../Marker2D")
+radius = 1360
+spread_degrees = 35
 
-[node name="TestItem2" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(918, 1002)
+[node name="TestItem6" parent="Hand" instance=ExtResource("3_wuu58")]
+position = Vector2(1189, 1029)
 
-[node name="TestItem3" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(1473, 1029)
+[node name="TestItem7" parent="Hand" instance=ExtResource("3_wuu58")]
+position = Vector2(1488, 1039)
 
-[node name="TestItem4" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(1060, 1055)
+[node name="TestItem8" parent="Hand" instance=ExtResource("3_wuu58")]
+position = Vector2(1755, 1048)
 
-[node name="TestItem5" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(772, 1037)
+[node name="TestItem11" parent="Hand" instance=ExtResource("3_wuu58")]
+position = Vector2(1755, 1048)
 
-[node name="TestItem6" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(1327, 1064)
+[node name="TestItem10" parent="Hand" instance=ExtResource("3_wuu58")]
+position = Vector2(1755, 1048)
 
-[node name="TestItem7" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(1626, 1074)
+[node name="TestTrap" parent="Hand" instance=ExtResource("6_w3nw2")]
+position = Vector2(390, 1051)
 
-[node name="TestItem8" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(1893, 1083)
-
-[node name="TestItem9" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(1747, 1118)
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(983, 2265)
+rotation = -1.57079

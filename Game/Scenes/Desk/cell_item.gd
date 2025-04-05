@@ -20,20 +20,36 @@ func _physics_process(delta: float) -> void:
 		global_position = OwnerCell.global_position
 	if IsDragging:
 		global_position = lerp(global_position, get_global_mouse_position(), delta * G.DraggingSpeed)
+		rotation = lerp_angle(rotation, deg_to_rad(-90), delta * G.DraggingSpeed)
+	if IsHovered:
+		%ToolTip.global_position = get_global_mouse_position()
 
 func CheckIsDragging():
-	if State == States.NotInCell and Team == G.Teams.Player:
-		if Input.is_action_pressed("Action1"):
-			if IsHovered or IsDragging:
+	if G.DraggingSlot:
+		if G.ActiveDraggedItem != self:
+			return
+	
+	if State == States.NotInCell and Team != G.Teams.Enemy:
+		if Input.is_action_pressed("Action1") and (G.ActiveDraggedItem == null or G.ActiveDraggedItem == self):  
+			if (IsHovered or IsDragging) :
 				IsDragging = true
-				return
+		if not Input.is_action_pressed("Action1"):
+			IsDragging = false
+	if IsDragging:
+		G.DraggingSlot = true
+		G.ActiveDraggedItem = self  
+		return
+	else:
+		G.DraggingSlot = false
+		G.ActiveDraggedItem = null 
 	IsDragging = false
 
+
 func _on_collision_detecter_mouse_entered() -> void:
-	if not IsDragging: $ToolTip.show()
+	if not IsDragging: %ToolTip.show()
 	IsHovered = true
 func _on_collision_detecter_mouse_exited() -> void:
-	$ToolTip.hide()
+	%ToolTip.hide()
 	IsHovered = false
 
 func CheckCellCollisions():
@@ -50,8 +66,8 @@ func PlaceInCell(cell):
 	cell.Item = self
 	OwnerCell = cell
 	State = States.InCell
-	modulate = Color.RED
 	OnPlay()
+	main.hand.cards.remove_at(main.hand.cards.find(self))
 	main.OnPlayItem.emit(self)
 
 func OnPlay():
