@@ -3,7 +3,11 @@ class_name TestItem
 
 
 func OnPlay():
-	modulate = Color.BLUE
+	match Team:
+		G.Teams.Player:
+			modulate = Color.BLUE
+		G.Teams.Enemy:
+			modulate = Color.RED
 	#var dup = self.duplicate() as TestItem
 	#dup.OwnerCell = null
 	#dup.State = CellItem.States.NotInCell

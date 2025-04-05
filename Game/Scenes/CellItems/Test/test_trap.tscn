@@ -8,6 +8,8 @@ size = Vector2(52, 70)
 
 [node name="TestTrap" instance=ExtResource("1_0e0ru")]
 script = ExtResource("2_31r8s")
+Team = 2
+IsDragging = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetecter" index="0"]
 rotation = 1.57079

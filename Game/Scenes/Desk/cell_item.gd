@@ -6,7 +6,7 @@ enum States {
 	InCell,
 	Null
 }
-@export var Team : G.Teams = G.Teams.NoTeam
+@export var Team : G.Teams = G.Teams.Null
 @export var State : States = States.Null
 @export var OwnerCell : Cell
 @export var IsDragging : bool = false
@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	CheckCellCollisions()
 	if State == States.InCell:
 		global_position = OwnerCell.global_position
-	if IsDragging:
+	if IsDragging and G.CurrentTurn != G.Turns.Enemy:
 		global_position = lerp(global_position, get_global_mouse_position(), delta * G.DraggingSpeed)
 		rotation = lerp_angle(rotation, deg_to_rad(-90), delta * G.DraggingSpeed)
 	if IsHovered:
@@ -29,7 +29,7 @@ func CheckIsDragging():
 		if G.ActiveDraggedItem != self:
 			return
 	
-	if State == States.NotInCell and Team != G.Teams.Enemy:
+	if State == States.NotInCell and Team != G.Teams.Enemy :
 		if Input.is_action_pressed("Action1") and (G.ActiveDraggedItem == null or G.ActiveDraggedItem == self):  
 			if (IsHovered or IsDragging) :
 				IsDragging = true
@@ -58,7 +58,7 @@ func CheckCellCollisions():
 	if not is_node_ready():
 		return
 	for area in %CollisionDetecter.get_overlapping_areas():
-		if not IsDragging and area.Item.Team == G.Teams.NoTeam:
+		if not IsDragging and area.Item.Team == G.Teams.Null or area.Item.Team == G.Teams.NoTeam:
 			if State == States.NotInCell:
 				PlaceInCell(area)
 
@@ -67,7 +67,8 @@ func PlaceInCell(cell):
 	OwnerCell = cell
 	State = States.InCell
 	OnPlay()
-	main.hand.cards.remove_at(main.hand.cards.find(self))
+	if main.hand.cards.find(self) >= 0:
+		main.hand.cards.remove_at(main.hand.cards.find(self))
 	main.OnPlayItem.emit(self)
 
 func OnPlay():

@@ -20,6 +20,5 @@ unique_name_in_owner = true
 remote_path = NodePath("../Node/ToolTip")
 update_rotation = false
 
-[connection signal="area_entered" from="CollisionDetecter" to="." method="_on_collision_detecter_area_entered"]
 [connection signal="mouse_entered" from="CollisionDetecter" to="." method="_on_collision_detecter_mouse_entered"]
 [connection signal="mouse_exited" from="CollisionDetecter" to="." method="_on_collision_detecter_mouse_exited"]

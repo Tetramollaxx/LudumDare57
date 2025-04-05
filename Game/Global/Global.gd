@@ -4,6 +4,8 @@ class_name Global
 @export var DraggingSlot : bool
 @export var ActiveDraggedItem : CellItem
 
+@export var CurrentTurn : Turns = Turns.Player
+
 # GAME SETTINGS
 @export var IsDebug : bool = true
 
@@ -12,5 +14,10 @@ class_name Global
 enum Teams {
 	Player,
 	Enemy,
-	NoTeam
+	NoTeam,
+	Null
+}
+enum Turns {
+	Player,
+	Enemy
 }

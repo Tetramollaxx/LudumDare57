@@ -46,7 +46,8 @@ position = Vector2(202, 41)
 position = Vector2(204, 984)
 
 [node name="Board" parent="." instance=ExtResource("2_gbnu7")]
-position = Vector2(1171, 396)
+position = Vector2(1166, 354)
+scale = Vector2(1.385, 1.385)
 
 [node name="Hand" type="Node2D" parent="." node_paths=PackedStringArray("center")]
 script = ExtResource("5_bff7j")
