@@ -156,7 +156,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("3_xb6sg")
-theme_override_font_sizes/normal_font_size = 151
+theme_override_font_sizes/normal_font_size = 86
 bbcode_enabled = true
 text = "[wave]Ludum Dare 57"
 horizontal_alignment = 1
@@ -171,7 +171,7 @@ autoplay = "Intro"
 
 [node name="FG" type="Polygon2D" parent="."]
 z_index = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 polygon = PackedVector2Array(-267, -296, -267, -296, 4153, -383, 4194, 2461, 4194, 2461, -332, 2502)
 
 [node name="FG2" type="Polygon2D" parent="."]

@@ -7,5 +7,6 @@ class_name ToolTip
 @onready var tool_tip_w: Sprite2D = $ToolTipContainer/ToolTipW
 
 func _ready() -> void:
+	hide()
 	%TipText.text = TipText
 	%CardName.text = TipName

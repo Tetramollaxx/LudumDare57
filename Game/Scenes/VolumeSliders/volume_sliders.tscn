@@ -13,7 +13,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.152941, 0.101961, 0.290196, 1, 1, 1, 1, 
 gradient = SubResource("Gradient_whsao")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.6, 0)
+fill_to = Vector2(0.510309, 0.201031)
 
 [sub_resource type="Gradient" id="Gradient_uuk86"]
 interpolation_mode = 1
@@ -44,33 +44,26 @@ color = Color(0.0470588, 0.0235294, 0.0901961, 0.635294)
 polygon = PackedVector2Array(-267, -296, -267, -296, 4153, -383, 4194, 2461, 4194, 2461, -332, 2502)
 uv = PackedVector2Array(-267, -296, -267, -296, 4153, -383, 4194, 2461, 4194, 2461, -332, 2502)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -566.0
-offset_top = -169.0
-offset_right = 566.0
-offset_bottom = 169.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 104.6)
-layout_mode = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(320, 104.6)
+offset_left = -24.0
+offset_top = -53.0
+offset_right = 616.0
+offset_bottom = 89.0
 theme_override_fonts/normal_font = ExtResource("2_ytu5u")
-theme_override_font_sizes/normal_font_size = 123
+theme_override_font_sizes/normal_font_size = 58
 bbcode_enabled = true
 text = "[wave] VOLUME"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Master" type="HSlider" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 130.655)
-layout_mode = 2
+[node name="Master" type="HSlider" parent="."]
+custom_minimum_size = Vector2(315.12, 0)
+offset_left = 64.0
+offset_top = 129.0
+offset_right = 573.968
+offset_bottom = 193.0
 size_flags_vertical = 8
 theme_override_icons/grabber = SubResource("GradientTexture2D_uuk86")
 theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_uuk86")
@@ -82,18 +75,23 @@ step = 0.1
 value = 0.8
 tick_count = 6
 
-[node name="Masterlabel" type="Label" parent="VBoxContainer/Master"]
+[node name="Masterlabel" type="Label" parent="Master"]
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 0
-offset_top = -15.575
-offset_right = 78.0
-offset_bottom = 16.425
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 316.0
+offset_bottom = 57.0
 theme_override_fonts/font = ExtResource("2_ytu5u")
-theme_override_font_sizes/font_size = 51
+theme_override_font_sizes/font_size = 26
 text = "Master"
 
-[node name="SFX" type="HSlider" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 130.655)
-layout_mode = 2
+[node name="SFX" type="HSlider" parent="."]
+custom_minimum_size = Vector2(320, 0)
+offset_left = 64.0
+offset_top = 193.99
+offset_right = 573.968
+offset_bottom = 257.99
 size_flags_vertical = 8
 theme_override_icons/grabber = SubResource("GradientTexture2D_uuk86")
 theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_uuk86")
@@ -105,19 +103,23 @@ step = 0.1
 value = 0.8
 tick_count = 6
 
-[node name="SFXlabel" type="Label" parent="VBoxContainer/SFX"]
+[node name="SFXlabel" type="Label" parent="SFX"]
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 0
-offset_left = 3.0
-offset_top = -17.15
-offset_right = 81.0
-offset_bottom = 14.85
+offset_left = -1.0
+offset_top = -4.575
+offset_right = 319.0
+offset_bottom = 55.425
 theme_override_fonts/font = ExtResource("2_ytu5u")
-theme_override_font_sizes/font_size = 51
+theme_override_font_sizes/font_size = 26
 text = "SFX"
 
-[node name="Music" type="HSlider" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 130.655)
-layout_mode = 2
+[node name="Music" type="HSlider" parent="."]
+custom_minimum_size = Vector2(320, 0)
+offset_left = 64.0
+offset_top = 258.98
+offset_right = 573.968
+offset_bottom = 322.98
 size_flags_vertical = 8
 theme_override_icons/grabber = SubResource("GradientTexture2D_uuk86")
 theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_uuk86")
@@ -129,14 +131,15 @@ step = 0.1
 value = 0.8
 tick_count = 6
 
-[node name="Musiclabel" type="Label" parent="VBoxContainer/Music"]
+[node name="Musiclabel" type="Label" parent="Music"]
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 0
-offset_left = 3.0
-offset_top = -14.15
-offset_right = 81.0
-offset_bottom = 17.85
+offset_left = -1.0
+offset_top = -1.575
+offset_right = 319.0
+offset_bottom = 58.425
 theme_override_fonts/font = ExtResource("2_ytu5u")
-theme_override_font_sizes/font_size = 51
+theme_override_font_sizes/font_size = 26
 text = "Music"
 
 [node name="SFXTester" type="AudioStreamPlayer" parent="."]
@@ -148,6 +151,6 @@ bus = &"SFX"
 stream = ExtResource("3_vo821")
 bus = &"Music"
 
-[connection signal="drag_ended" from="VBoxContainer/Master" to="." method="_on_master_value_changed"]
-[connection signal="drag_ended" from="VBoxContainer/SFX" to="." method="_on_sfx_value_changed"]
-[connection signal="drag_ended" from="VBoxContainer/Music" to="." method="_on_music_value_changed"]
+[connection signal="drag_ended" from="Master" to="." method="_on_master_value_changed"]
+[connection signal="drag_ended" from="SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="drag_ended" from="Music" to="." method="_on_music_value_changed"]

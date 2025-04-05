@@ -5,6 +5,6 @@ class_name Cell
 @export var Item : CellItem = CellItem.new():
 	set(newV):
 		Item = newV
-		SetItem.emit(newV)
+		OnSetItem.emit(newV)
 
-signal SetItem(Item)
+signal OnSetItem(Item)

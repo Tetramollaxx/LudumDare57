@@ -16,6 +16,10 @@ func _ready() -> void:
 	main.OnPlayItem.connect(Turn)
 	OnDepthChanged.connect($DepthIndicator.SetIndicator)
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("SettingsAction"):
+		$VolumeSliders.visible = bool((int($VolumeSliders.visible) + 1) % 2)
+
 func Death():
 	print("YOu dead! Mu hahah ahaha h")
 

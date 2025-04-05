@@ -74,5 +74,8 @@ func PlaceInCell(cell):
 		main.hand.cards.remove_at(main.hand.cards.find(self))
 	main.OnPlayItem.emit(self)
 
+func destroy():
+	queue_free()
+
 func OnPlay():
 	pass

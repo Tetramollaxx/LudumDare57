@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bw0mw01x5bbjh"]
+[gd_scene load_steps=47 format=3 uid="uid://bw0mw01x5bbjh"]
 
 [ext_resource type="Script" uid="uid://b4atiqjnrb01c" path="res://Game/Scenes/MainGame/game.gd" id="1_a2gjm"]
 [ext_resource type="Texture2D" uid="uid://c0ho1wweoo111" path="res://Game/Assets/Graphics/Player/DiverPlayer.png" id="1_k0ojn"]
@@ -14,6 +14,9 @@
 [ext_resource type="FontFile" uid="uid://bwtylc61vwvqc" path="res://Game/Assets/Fonts/GarmitBlack-xRlJK.otf" id="8_lldwk"]
 [ext_resource type="Script" uid="uid://dssny3p6g5a" path="res://Game/Scenes/Other/tooltipArea.gd" id="9_18q5k"]
 [ext_resource type="PackedScene" uid="uid://ce8p6mwnlelmx" path="res://Game/Scenes/Desk/tool_tip.tscn" id="9_duyep"]
+[ext_resource type="PackedScene" uid="uid://dkrf0lie731mp" path="res://Game/Scenes/VolumeSliders/volume_sliders.tscn" id="15_2jj2j"]
+[ext_resource type="PackedScene" uid="uid://dbmrl3yfrd83t" path="res://Game/Scenes/CellItems/TrapCard/trap_card.tscn" id="15_56icy"]
+[ext_resource type="FontFile" uid="uid://b7j8ckdxe46c0" path="res://Game/Assets/Fonts/Kaliandra-5yKrL.otf" id="16_mjtin"]
 
 [sub_resource type="Gradient" id="Gradient_bff7j"]
 colors = PackedColorArray(0.637843, 0.637843, 0.637843, 1, 1, 1, 1, 1)
@@ -37,6 +40,37 @@ gravity = Vector3(0, -98, 0)
 scale_min = 0.55
 scale_max = 1.45
 scale_curve = SubResource("CurveTexture_8xnf0")
+
+[sub_resource type="Gradient" id="Gradient_56icy"]
+offsets = PackedFloat32Array(0.779221, 0.818182, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.0519481, 0.0519481, 0.0519481, 0.0519481, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mjtin"]
+noise_type = 3
+frequency = 0.0055
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_56icy"]
+seamless = true
+color_ramp = SubResource("Gradient_56icy")
+noise = SubResource("FastNoiseLite_mjtin")
+
+[sub_resource type="Curve" id="Curve_5yygo"]
+_data = [Vector2(0, 0), 0.0, 6.62172, 0, 0, Vector2(0.235294, 1), 0.0, 0.0, 0, 0, Vector2(0.713235, 1), -0.0246466, -0.0246466, 0, 0, Vector2(1, 0), -4.73708, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_7w200"]
+curve = SubResource("Curve_5yygo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mjtin"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(160, 10, 1)
+angle_min = -397.2
+angle_max = 240.0
+gravity = Vector3(0, -14, 0)
+scale_min = 0.89
+scale_max = 1.14
+alpha_curve = SubResource("CurveTexture_7w200")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8y26x"]
 atlas = ExtResource("3_lldwk")
@@ -195,6 +229,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-791, -18)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ViewBlocker:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ViewBlocker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 86)]
+}
 
 [sub_resource type="Animation" id="Animation_duyep"]
 resource_name = "Lose"
@@ -212,8 +270,37 @@ tracks/0/keys = {
 "values": [Vector2(-791, -18), Vector2(-54, -23), Vector2(-454, -23), Vector2(-54, -23), Vector2(-791, -18), Vector2(-54, -23), Vector2(-791, -18), Vector2(-54, -23), Vector2(-791, -18)]
 }
 
+[sub_resource type="Animation" id="Animation_5yygo"]
+resource_name = "Intro"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ViewBlocker:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ViewBlocker:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.03333, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 86), Vector2(656, 99)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_18q5k"]
 _data = {
+&"Intro": SubResource("Animation_5yygo"),
 &"Lose": SubResource("Animation_duyep"),
 &"RESET": SubResource("Animation_8y26x")
 }
@@ -248,6 +335,14 @@ texture = ExtResource("2_8y26x")
 lifetime = 4.6
 visibility_rect = Rect2(-100, -1000, 211.84, 1000)
 process_material = SubResource("ParticleProcessMaterial_2jj2j")
+
+[node name="DarkBubles2" type="GPUParticles2D" parent="Graphics/Flask"]
+position = Vector2(288, 1109)
+amount = 4
+texture = SubResource("NoiseTexture2D_56icy")
+lifetime = 7.12
+visibility_rect = Rect2(-100, -1000, 211.84, 1000)
+process_material = SubResource("ParticleProcessMaterial_mjtin")
 
 [node name="Tentacle" type="Sprite2D" parent="Graphics/Flask"]
 position = Vector2(63.2879, 1212.97)
@@ -321,6 +416,13 @@ Start = NodePath("StartMarker2D")
 End = NodePath("EndMarker2D")
 Indicator = NodePath("DiverPlayer")
 
+[node name="ToolTip" parent="DepthIndicator" instance=ExtResource("9_duyep")]
+position = Vector2(907, 507)
+scale = Vector2(1.00245, 1.00245)
+TipText = "      you better not 
+      get close..."
+TipName = "It's[wave] you!"
+
 [node name="DiverPlayer" type="Sprite2D" parent="DepthIndicator"]
 position = Vector2(390, 492)
 scale = Vector2(1.23, 1.23)
@@ -350,16 +452,10 @@ text = "[wave]30"
 fit_content = true
 scroll_active = false
 
-[node name="Area2D" type="Area2D" parent="DepthIndicator/DiverPlayer"]
+[node name="Area2D" type="Area2D" parent="DepthIndicator/DiverPlayer" node_paths=PackedStringArray("ToolT")]
 script = ExtResource("9_18q5k")
 isFlipped = true
-
-[node name="ToolTip" parent="DepthIndicator/DiverPlayer/Area2D" instance=ExtResource("9_duyep")]
-position = Vector2(420.325, 12.1951)
-scale = Vector2(0.815, 0.815)
-TipText = "      you better not 
-      get close..."
-TipName = "It's[wave] you!"
+ToolT = NodePath("../../ToolTip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DepthIndicator/DiverPlayer/Area2D"]
 position = Vector2(-70.7317, 61.7886)
@@ -391,6 +487,9 @@ position = Vector2(884, 969)
 [node name="DefaultCardX3" parent="Hand" instance=ExtResource("6_w3nw2")]
 position = Vector2(884, 969)
 
+[node name="TrapCard" parent="Hand" instance=ExtResource("15_56icy")]
+position = Vector2(904, 982)
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1159, 2265)
 rotation = -1.57079
@@ -400,10 +499,33 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_18q5k")
 }
+autoplay = "Intro"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(927, 522)
 zoom = Vector2(0.346, 0.346)
+
+[node name="ViewBlocker" type="Polygon2D" parent="."]
+z_index = 2
+position = Vector2(0, 86)
+color = Color(0, 0, 0, 0)
+polygon = PackedVector2Array(-119, -248, 1935, -265, 1984, 1164, 1984, 1164, -140, 1140)
+
+[node name="IntroNTutorialText" type="RichTextLabel" parent="."]
+z_index = 2
+offset_right = 1845.0
+offset_bottom = 1044.0
+theme_override_fonts/normal_font = ExtResource("16_mjtin")
+theme_override_font_sizes/normal_font_size = 71
+bbcode_enabled = true
+text = "Test"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSliders" parent="." instance=ExtResource("15_2jj2j")]
+visible = false
 
 [connection signal="mouse_entered" from="DepthIndicator/DiverPlayer/Area2D" to="DepthIndicator/DiverPlayer/Area2D" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="DepthIndicator/DiverPlayer/Area2D" to="DepthIndicator/DiverPlayer/Area2D" method="_on_mouse_exited"]
