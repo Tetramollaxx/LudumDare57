@@ -6,3 +6,8 @@ class_name Global
 
 # CONSTANTS
 @export var DraggingSpeed : float = 15
+enum Teams {
+	Player,
+	Enemy,
+	NoTeam
+}

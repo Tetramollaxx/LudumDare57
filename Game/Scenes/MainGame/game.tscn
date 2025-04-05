@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw0mw01x5bbjh"]
+[gd_scene load_steps=6 format=3 uid="uid://bw0mw01x5bbjh"]
 
+[ext_resource type="Script" uid="uid://b4atiqjnrb01c" path="res://Game/Scenes/MainGame/game.gd" id="1_a2gjm"]
 [ext_resource type="Texture2D" uid="uid://c0ho1wweoo111" path="res://Game/Assets/Graphics/Player/DiverPlayer.png" id="1_k0ojn"]
 [ext_resource type="PackedScene" uid="uid://ds040xgyuy3lt" path="res://Game/Scenes/Desk/Board.tscn" id="2_gbnu7"]
+[ext_resource type="Script" uid="uid://x8rxpm2ner8b" path="res://Game/Scenes/MainGame/depth_indicator.gd" id="2_hqy8m"]
 [ext_resource type="PackedScene" uid="uid://dimy02xt3kxnv" path="res://Game/Scenes/CellItems/Test/test_item.tscn" id="3_wuu58"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_a2gjm")
 
 [node name="TestGraphics" type="Node2D" parent="."]
 
@@ -18,13 +21,50 @@ polygon = PackedVector2Array(-73, -17, 448, -21, 438, 1130, -81, 1130)
 color = Color(0.121569, 0.121569, 0.215686, 1)
 polygon = PackedVector2Array(-73, -17, 448, -21, 438, 1130, -81, 1130)
 
-[node name="DiverPlayer" type="Sprite2D" parent="TestGraphics"]
+[node name="DepthIndicator" type="Node2D" parent="." node_paths=PackedStringArray("game", "Start", "End", "Indicator")]
+script = ExtResource("2_hqy8m")
+game = NodePath("..")
+Start = NodePath("StartMarker2D")
+End = NodePath("EndMarker2D")
+Indicator = NodePath("DiverPlayer")
+
+[node name="DiverPlayer" type="Sprite2D" parent="DepthIndicator"]
 position = Vector2(309, 495)
 scale = Vector2(1.24, 1.24)
 texture = ExtResource("1_k0ojn")
+
+[node name="StartMarker2D" type="Marker2D" parent="DepthIndicator"]
+position = Vector2(202, 41)
+
+[node name="EndMarker2D" type="Marker2D" parent="DepthIndicator"]
+position = Vector2(204, 984)
 
 [node name="Board" parent="." instance=ExtResource("2_gbnu7")]
 position = Vector2(1192, 556)
 
 [node name="TestItem" parent="." instance=ExtResource("3_wuu58")]
-position = Vector2(1224, 787)
+position = Vector2(1206, 1020)
+
+[node name="TestItem2" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(918, 1002)
+
+[node name="TestItem3" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(1473, 1029)
+
+[node name="TestItem4" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(1060, 1055)
+
+[node name="TestItem5" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(772, 1037)
+
+[node name="TestItem6" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(1327, 1064)
+
+[node name="TestItem7" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(1626, 1074)
+
+[node name="TestItem8" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(1893, 1083)
+
+[node name="TestItem9" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(1747, 1118)
