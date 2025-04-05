@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf8jiwpchl7uw"]
+
+[ext_resource type="Script" uid="uid://cd5apih1iasew" path="res://Game/Scenes/Desk/cell_item.gd" id="1_jctx8"]
+[ext_resource type="PackedScene" uid="uid://ce8p6mwnlelmx" path="res://Game/Scenes/Desk/tool_tip.tscn" id="2_l5sew"]
+
+[node name="CellItem" type="Node2D"]
+script = ExtResource("1_jctx8")
+
+[node name="CollisionDetecter" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="ToolTip" parent="." instance=ExtResource("2_l5sew")]
+
+[connection signal="area_entered" from="CollisionDetecter" to="." method="_on_collision_detecter_area_entered"]
+[connection signal="mouse_entered" from="CollisionDetecter" to="." method="_on_collision_detecter_mouse_entered"]
+[connection signal="mouse_exited" from="CollisionDetecter" to="." method="_on_collision_detecter_mouse_exited"]

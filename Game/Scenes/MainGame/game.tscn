@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw0mw01x5bbjh"]
+
+[ext_resource type="Texture2D" uid="uid://c0ho1wweoo111" path="res://Game/Assets/Graphics/Player/DiverPlayer.png" id="1_k0ojn"]
+[ext_resource type="PackedScene" uid="uid://ds040xgyuy3lt" path="res://Game/Scenes/Desk/Board.tscn" id="2_gbnu7"]
+[ext_resource type="PackedScene" uid="uid://dimy02xt3kxnv" path="res://Game/Scenes/CellItems/Test/test_item.tscn" id="3_wuu58"]
+
+[node name="Game" type="Node2D"]
+
+[node name="TestGraphics" type="Node2D" parent="."]
+
+[node name="Polygon2D2" type="Polygon2D" parent="TestGraphics"]
+position = Vector2(228, 0)
+scale = Vector2(3.76371, 1)
+color = Color(0.359776, 0.361404, 0.561934, 1)
+polygon = PackedVector2Array(-73, -17, 448, -21, 438, 1130, -81, 1130)
+
+[node name="Polygon2D" type="Polygon2D" parent="TestGraphics"]
+color = Color(0.121569, 0.121569, 0.215686, 1)
+polygon = PackedVector2Array(-73, -17, 448, -21, 438, 1130, -81, 1130)
+
+[node name="DiverPlayer" type="Sprite2D" parent="TestGraphics"]
+position = Vector2(309, 495)
+scale = Vector2(1.24, 1.24)
+texture = ExtResource("1_k0ojn")
+
+[node name="Board" parent="." instance=ExtResource("2_gbnu7")]
+position = Vector2(1192, 556)
+
+[node name="TestItem" parent="." instance=ExtResource("3_wuu58")]
+position = Vector2(1224, 787)

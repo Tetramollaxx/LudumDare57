@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dimy02xt3kxnv"]
+
+[ext_resource type="PackedScene" uid="uid://bf8jiwpchl7uw" path="res://Game/Scenes/Desk/cell_item.tscn" id="1_cnt6b"]
+[ext_resource type="Script" uid="uid://0gonkr8nlc7i" path="res://Game/Scenes/CellItems/Test/test_item.gd" id="2_kw7cu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnt6b"]
+size = Vector2(52, 70)
+
+[node name="TestItem" instance=ExtResource("1_cnt6b")]
+script = ExtResource("2_kw7cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetecter" index="0"]
+shape = SubResource("RectangleShape2D_cnt6b")
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-39, -40, 31, -38, 25, 35, -31, 36, -41, -44)
+
+[node name="ToolTip" parent="." index="2"]
+TipText = "This is Test tooltip"

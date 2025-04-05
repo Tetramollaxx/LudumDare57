@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://btfbhe31lb45v"]
 
 [ext_resource type="Script" uid="uid://cigipprmhxb8h" path="res://Game/Scenes/Intro/intro.gd" id="1_cynpk"]
-[ext_resource type="PackedScene" uid="uid://dkrf0lie731mp" path="res://Game/Scenes/VolumeSliders/volume_sliders.tscn" id="2_kbh0g"]
+[ext_resource type="PackedScene" uid="uid://bw0mw01x5bbjh" path="res://Game/Scenes/MainGame/game.tscn" id="2_7cvog"]
 [ext_resource type="FontFile" uid="uid://b7j8ckdxe46c0" path="res://Game/Assets/Fonts/Kaliandra-5yKrL.otf" id="3_xb6sg"]
 [ext_resource type="AudioStream" uid="uid://cv21tir6w5b1w" path="res://Game/Assets/SFX/PaperRipSFX.mp3" id="4_7cvog"]
 
@@ -143,7 +143,7 @@ _data = {
 
 [node name="Intro" type="CanvasLayer"]
 script = ExtResource("1_cynpk")
-NextScene = ExtResource("2_kbh0g")
+NextScene = ExtResource("2_7cvog")
 
 [node name="BG" type="Polygon2D" parent="."]
 color = Color(0.0470588, 0.0235294, 0.0901961, 1)
