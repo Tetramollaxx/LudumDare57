@@ -21,8 +21,6 @@ func _physics_process(delta: float) -> void:
 	if IsDragging and G.CurrentTurn != G.Turns.Enemy:
 		global_position = lerp(global_position, get_global_mouse_position(), delta * G.DraggingSpeed)
 		rotation = lerp_angle(rotation, deg_to_rad(-90), delta * G.DraggingSpeed)
-	if IsHovered:
-		%ToolTip.global_position = get_global_mouse_position()
 
 func CheckIsDragging():
 	if G.DraggingSlot:
@@ -46,7 +44,12 @@ func CheckIsDragging():
 
 
 func _on_collision_detecter_mouse_entered() -> void:
-	if not IsDragging: %ToolTip.show()
+	if not IsDragging: 
+		%ToolTip.show()
+		if %ToolTip.global_position.y<= 250:
+			$RemoteTransform2D.global_position.y += 500
+			$RemoteTransform2D.global_position.x -= 100
+			%ToolTip.tool_tip_w.flip_v = true
 	IsHovered = true
 func _on_collision_detecter_mouse_exited() -> void:
 	%ToolTip.hide()

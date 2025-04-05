@@ -3,18 +3,12 @@
 [ext_resource type="Script" uid="uid://cmp4mkden4ufa" path="res://Game/Scenes/Desk/cell.gd" id="1_1xx4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xx4n"]
-size = Vector2(68, 62)
+size = Vector2(48.6239, 46.9613)
 
 [node name="Cell" type="Area2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_1xx4n")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-8, 9)
-scale = Vector2(2.18, 2.172)
-color = Color(0.435192, 0.435192, 0.435192, 1)
-polygon = PackedVector2Array(-29, 27, 40.8257, 29.4659, 41.2844, -40.5157, -37.6147, -36.8324)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2.18, 2.172)

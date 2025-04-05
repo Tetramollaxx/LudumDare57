@@ -58,16 +58,23 @@ func get_ai_move() -> int:
 
 	# 1. Попробовать победить
 	for line in win_lines:
-		var values = [(Cells[line[0]] as Cell).Item.Team, Cells[line[1]].Item.Team, Cells[line[2]].Item.Team]
-		if values.count(ai_team) == 2 and values.count(null_team) == 1:
-			return line[values.find(null_team)]
+		var values = [Cells[line[0]].Item.Team, Cells[line[1]].Item.Team, Cells[line[2]].Item.Team]
+		if values.count(ai_team) == 2 and values.count(player_team) <= 0:
+			print(values)
+			print(line[values.find(3)])
+			if values.find(null_team[0]) != -1:
+				return line[values.find(3)]
+			elif values.find(null_team[1]) != -1:
+				return line[values.find(null_team[1])]
 
 	# 2. Заблокировать игрока
 	for line in win_lines:
 		var values = [Cells[line[0]].Item.Team, Cells[line[1]].Item.Team, Cells[line[2]].Item.Team]
-		if values.count(player_team) == 2 and values.count(null_team) == 1:
-			return line[values.find(null_team)]
-
+		if values.count(player_team) == 2 and values.count(ai_team) <= 0:
+			if values.find(null_team[0]) != -1: 
+				return line[values.find(null_team[0])]
+			elif values.find(null_team[1]) != -1:
+				return line[values.find(null_team[1])]
 	# 3. Взять центр, если свободен
 	for i in null_team:
 		if Cells[4].Item.Team == i:
@@ -75,8 +82,7 @@ func get_ai_move() -> int:
 
 	# 4. Взять угол
 	for i in [0, 2, 6, 8]:
-		for j in null_team:
-			if Cells[i].Item.Team == j:
+			if Cells[i].Item.Team == null_team[0] or Cells[i].Item.Team == null_team[1]:
 				return i
 
 	# 5. Взять любую свободную

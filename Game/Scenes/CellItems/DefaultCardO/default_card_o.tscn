@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdac4e4ku83p1"]
+
+[ext_resource type="PackedScene" uid="uid://bf8jiwpchl7uw" path="res://Game/Scenes/Desk/cell_item.tscn" id="1_vpwsh"]
+[ext_resource type="Texture2D" uid="uid://dpmvc6ivdqk1c" path="res://Game/Assets/Graphics/Cards/DefaultCardO.png" id="2_fc8kd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc8kd"]
+size = Vector2(220, 170)
+
+[node name="DefaultCardO" instance=ExtResource("1_vpwsh")]
+Team = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetecter" index="0"]
+shape = SubResource("RectangleShape2D_fc8kd")
+
+[node name="ToolTip" parent="Node" index="0"]
+TipText = "Represents an O in the game of tic-tac-toe."
+TipName = "Regular O-card"
+
+[node name="DefaultCardO" type="Sprite2D" parent="." index="3"]
+rotation = 1.57079
+scale = Vector2(1.91, 1.919)
+texture = ExtResource("2_fc8kd")

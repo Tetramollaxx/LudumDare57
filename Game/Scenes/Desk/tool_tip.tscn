@@ -1,25 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce8p6mwnlelmx"]
+[gd_scene load_steps=5 format=3 uid="uid://ce8p6mwnlelmx"]
 
 [ext_resource type="Script" uid="uid://wo6hsfdem0k6" path="res://Game/Scenes/Desk/tool_tip.gd" id="1_l45i3"]
-[ext_resource type="FontFile" uid="uid://bwtylc61vwvqc" path="res://Game/Assets/Fonts/GarmitBlack-xRlJK.otf" id="2_17ma2"]
+[ext_resource type="Texture2D" uid="uid://bc1k7ov3uwpic" path="res://Game/Assets/Graphics/Other/ToolTipW.png" id="2_pcj1b"]
+[ext_resource type="FontFile" uid="uid://bt677yukcv26r" path="res://Game/Assets/Fonts/MagfiosRegular-AR1AL.ttf" id="3_pxiyj"]
+[ext_resource type="FontFile" uid="uid://b7j8ckdxe46c0" path="res://Game/Assets/Fonts/Kaliandra-5yKrL.otf" id="4_klbmi"]
 
 [node name="ToolTip" type="Node2D"]
+visible = false
+z_index = 1
 script = ExtResource("1_l45i3")
 
 [node name="ToolTipContainer" type="Node2D" parent="."]
 
-[node name="Polygon2D" type="Polygon2D" parent="ToolTipContainer"]
-color = Color(0.0110876, 0.0110876, 0.0110876, 1)
-polygon = PackedVector2Array(-158, -88, -16, -88, -18, -35, -6, -9, -23, -20, -160, -20)
+[node name="ToolTipW" type="Sprite2D" parent="ToolTipContainer"]
+position = Vector2(-277.76, -248.5)
+scale = Vector2(1.76468, 1.51077)
+texture = ExtResource("2_pcj1b")
 
 [node name="TipText" type="RichTextLabel" parent="ToolTipContainer"]
 unique_name_in_owner = true
-offset_left = -153.0
-offset_top = -83.0
-offset_right = -22.0
-offset_bottom = -28.0
-theme_override_fonts/normal_font = ExtResource("2_17ma2")
+offset_left = -571.0
+offset_top = -267.0
+offset_right = -73.0
+offset_bottom = -114.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("3_pxiyj")
+theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
 text = "bla bla bla"
 fit_content = true
 scroll_active = false
+
+[node name="CardName" type="RichTextLabel" parent="ToolTipContainer"]
+unique_name_in_owner = true
+offset_left = -565.0
+offset_top = -374.0
+offset_right = -65.0
+offset_bottom = -277.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_klbmi")
+theme_override_font_sizes/normal_font_size = 59
+bbcode_enabled = true
+text = "CardName"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1

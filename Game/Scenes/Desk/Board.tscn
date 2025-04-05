@@ -1,43 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds040xgyuy3lt"]
+[gd_scene load_steps=4 format=3 uid="uid://ds040xgyuy3lt"]
 
 [ext_resource type="Script" uid="uid://cgycp18n70shl" path="res://Game/Scenes/Desk/Board.gd" id="1_cn2vk"]
 [ext_resource type="PackedScene" uid="uid://4omwhusy12rc" path="res://Game/Scenes/Desk/cell.tscn" id="2_ylirf"]
+[ext_resource type="Texture2D" uid="uid://dpvws4nfb0xhb" path="res://Game/Assets/Graphics/Other/Board.png" id="3_riini"]
 
 [node name="Board" type="Node2D"]
 script = ExtResource("1_cn2vk")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-6.16751, 33.8148)
-scale = Vector2(1.51523, 2.14815)
-color = Color(0.147672, 0.147672, 0.147672, 1)
-polygon = PackedVector2Array(-186, 113, 208, 116, 201, -142, -178, -154)
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(12, 22)
+texture = ExtResource("3_riini")
 
 [node name="Cells" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Cell" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(-160, -161)
+position = Vector2(-183, -176)
 
 [node name="Cell2" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(15, -162)
+position = Vector2(20, -185)
 
 [node name="Cell3" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(196, -159)
+position = Vector2(204, -175)
 
 [node name="Cell4" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(-177, 32)
+position = Vector2(-199, 16)
 
 [node name="Cell5" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(2, 22)
+position = Vector2(8, 40)
 
 [node name="Cell6" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(194, 29)
+position = Vector2(204, 37)
 
 [node name="Cell7" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(-176, 193)
+position = Vector2(-199, 213)
 
 [node name="Cell8" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(6, 195)
+position = Vector2(16, 215)
 
 [node name="Cell9" parent="Cells" instance=ExtResource("2_ylirf")]
-position = Vector2(189, 196)
+position = Vector2(220, 237)
